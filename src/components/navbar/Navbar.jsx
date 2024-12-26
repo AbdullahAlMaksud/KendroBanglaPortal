@@ -5,12 +5,13 @@ import { SheetSide } from "./MenuSidebar";
 import ProfileDropDown from "./ProfileDropDown";
 
 const Navbar = () => {
+  const user = true;
   return (
     <nav className="fixed w-full">
-      <div className="bg-primary-foreground/90 backdrop-blur-sm shadow-sm shadow-black/20 text-white flex justify-between md:justify-between items-center h-16 px-4 flex-row">
+      <div className="bg-white backdrop-blur-sm shadow-sm shadow-black/20 text-white flex justify-between md:justify-between items-center h-16 px-4 flex-row">
         {/* Profile */}
         <div className="lg:hidden">
-          <ProfileDropDown />
+          <ProfileDropDown user={user} />
         </div>
         {/* Logo */}
         <Link href="/" className="">
