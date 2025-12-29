@@ -1,0 +1,3 @@
+﻿src/components/settings/SettingsSheet.tsx(18,8): error TS2307: Cannot find module '@/components/ui/sheet' or its corresponding type declarations.
+src/components/settings/SettingsSheet.tsx(19,24): error TS2307: Cannot find module '@/components/ui/button' or its corresponding type declarations.
+src/lib/ThemeProvider.tsx(4,41): error TS2307: Cannot find module 'next-themes/dist/types' or its corresponding type declarations.
