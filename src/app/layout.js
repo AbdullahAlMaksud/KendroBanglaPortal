@@ -1,4 +1,5 @@
 import { Anek_Bangla, Tiro_Bangla } from "next/font/google";
+import localFont from "next/font/local";
 import { SettingsProvider } from "@/lib/SettingsContext";
 import { ThemeProvider } from "@/lib/ThemeProvider";
 import Navbar from "@/components/navbar/Navbar";
@@ -29,6 +30,36 @@ const tiroBangla = Tiro_Bangla({
   variable: "--font-tiro-bangla",
 });
 
+// July Font - Local Bangla Font (Default)
+const julyFont = localFont({
+  src: [
+    {
+      path: "../assets/fonts/July-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/July-Italic.ttf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../assets/fonts/July-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/July-Bold-Italic.ttf",
+      weight: "700",
+      style: "italic",
+    },
+  ],
+  display: "swap",
+  preload: true,
+  fallback: ["system-ui", "arial"],
+  variable: "--font-july",
+});
+
 // Inline script to apply font from localStorage BEFORE React hydrates
 // This prevents Flash of Unstyled Content (FOUC)
 const fontLoaderScript = `
@@ -37,10 +68,20 @@ const fontLoaderScript = `
     var saved = localStorage.getItem('siteSettings');
     if (saved) {
       var settings = JSON.parse(saved);
-      var font = settings.fontFamily || 'anek-bangla';
-      var activeFont = font === 'tiro-bangla' 
-        ? 'var(--font-tiro-bangla), "Tiro Bangla", Georgia, serif'
-        : 'var(--font-anek-bangla), "Anek Bangla", system-ui, sans-serif';
+      var font = settings.fontFamily || 'july';
+      var activeFont;
+      switch(font) {
+        case 'tiro-bangla':
+          activeFont = 'var(--font-tiro-bangla), "Tiro Bangla", Georgia, serif';
+          break;
+        case 'anek-bangla':
+          activeFont = 'var(--font-anek-bangla), "Anek Bangla", system-ui, sans-serif';
+          break;
+        case 'july':
+        default:
+          activeFont = 'var(--font-july), "July", system-ui, sans-serif';
+          break;
+      }
       document.documentElement.style.setProperty('--active-font', activeFont);
       document.documentElement.setAttribute('data-font', font);
     }
@@ -50,16 +91,20 @@ const fontLoaderScript = `
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="bn" className={`${anekBangla.variable} ${tiroBangla.variable}`} suppressHydrationWarning={true}>
+    <html
+      lang="bn"
+      className={`${julyFont.variable} ${anekBangla.variable} ${tiroBangla.variable}`}
+      suppressHydrationWarning={true}
+    >
       <head>
         {/* Blocking script - runs before page renders */}
         <script dangerouslySetInnerHTML={{ __html: fontLoaderScript }} />
       </head>
       <body suppressHydrationWarning={true}>
         {/* Global Aurora Background */}
-        <div 
+        <div
           className="fixed inset-0 z-[-1] pointer-events-none transition-all duration-1000 ease-in-out"
-          style={{ background: 'var(--aurora-gradient)' }}
+          style={{ background: "var(--aurora-gradient)" }}
         />
         <ThemeProvider
           attribute="class"
@@ -70,9 +115,7 @@ export default function RootLayout({ children }) {
           <SettingsProvider>
             <div className="flex flex-col min-h-screen">
               <Navbar />
-              <main className="flex-1 pt-20">
-                {children}
-              </main>
+              <main className="flex-1 pt-20">{children}</main>
               <Footer />
             </div>
           </SettingsProvider>
@@ -81,4 +124,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-

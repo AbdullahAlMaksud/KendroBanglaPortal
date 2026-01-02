@@ -6,25 +6,42 @@
 :root {
   --user-font-size: 16px;
   --user-text-align: left;
-  /* Default active font - Anek Bangla */
-  --active-font: var(--font-anek-bangla), "Anek Bangla", system-ui, sans-serif;
+  /* Default active font - July */
+  --active-font: var(--font-july), "July", system-ui, sans-serif;
 }
 
 /* Global font application using CSS variable inheritance - Best Practice */
-html, body {
+html,
+body {
   font-family: var(--active-font) !important;
 }
 
 /* Apply to ALL elements for complete coverage */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   font-family: inherit;
 }
 
 /* Specific overrides for elements that might have their own font */
-h1, h2, h3, h4, h5, h6,
-p, span, div, a, button,
-input, textarea, select,
-li, td, th, label {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+div,
+a,
+button,
+input,
+textarea,
+select,
+li,
+td,
+th,
+label {
   font-family: inherit;
 }
 
@@ -63,65 +80,124 @@ li, td, th, label {
     --chart-5: 27 87% 67%;
 
     /* Aurora Gradient - Default Light */
-    --aurora-gradient: 
-      radial-gradient(ellipse 80% 60% at 60% 20%, rgba(175, 109, 255, 0.50), transparent 65%),
-      radial-gradient(ellipse 70% 60% at 20% 80%, rgba(255, 100, 180, 0.45), transparent 65%),
-      radial-gradient(ellipse 60% 50% at 60% 65%, rgba(255, 235, 170, 0.43), transparent 62%),
-      radial-gradient(ellipse 65% 40% at 50% 60%, rgba(120, 190, 255, 0.48), transparent 68%),
+    --aurora-gradient: radial-gradient(
+        ellipse 80% 60% at 60% 20%,
+        rgba(175, 109, 255, 0.5),
+        transparent 65%
+      ),
+      radial-gradient(
+        ellipse 70% 60% at 20% 80%,
+        rgba(255, 100, 180, 0.45),
+        transparent 65%
+      ),
+      radial-gradient(
+        ellipse 60% 50% at 60% 65%,
+        rgba(255, 235, 170, 0.43),
+        transparent 62%
+      ),
+      radial-gradient(
+        ellipse 65% 40% at 50% 60%,
+        rgba(120, 190, 255, 0.48),
+        transparent 68%
+      ),
       linear-gradient(180deg, #f7eaff 0%, #fde2ea 100%);
   }
 
   /* Nature Theme */
-  [data-theme-color='nature'] {
+  [data-theme-color="nature"] {
     --primary: 142 76% 36%; /* Green */
     --primary-foreground: 356 100% 97%;
     --ring: 142 76% 36%;
-    
+
     /* Aurora Gradient - Nature Light */
-    --aurora-gradient: 
-      radial-gradient(ellipse 80% 60% at 60% 20%, rgba(109, 255, 150, 0.40), transparent 65%),
-      radial-gradient(ellipse 70% 60% at 20% 80%, rgba(100, 255, 180, 0.35), transparent 65%),
-      radial-gradient(ellipse 60% 50% at 60% 65%, rgba(235, 255, 170, 0.43), transparent 62%),
-      radial-gradient(ellipse 65% 40% at 50% 60%, rgba(120, 255, 200, 0.38), transparent 68%),
+    --aurora-gradient: radial-gradient(
+        ellipse 80% 60% at 60% 20%,
+        rgba(109, 255, 150, 0.4),
+        transparent 65%
+      ),
+      radial-gradient(
+        ellipse 70% 60% at 20% 80%,
+        rgba(100, 255, 180, 0.35),
+        transparent 65%
+      ),
+      radial-gradient(
+        ellipse 60% 50% at 60% 65%,
+        rgba(235, 255, 170, 0.43),
+        transparent 62%
+      ),
+      radial-gradient(
+        ellipse 65% 40% at 50% 60%,
+        rgba(120, 255, 200, 0.38),
+        transparent 68%
+      ),
       linear-gradient(180deg, #effff5 0%, #e2fdea 100%);
   }
 
-  [data-theme-color='nature'] .dark {
+  [data-theme-color="nature"] .dark {
     --primary: 142 70% 50%;
     --primary-foreground: 144 100% 97%;
     --ring: 142 70% 50%;
 
     /* Aurora Gradient - Nature Dark */
-    --aurora-gradient: 
-      radial-gradient(ellipse 80% 60% at 60% 20%, rgba(20, 80, 40, 0.25), transparent 65%),
-      radial-gradient(ellipse 70% 60% at 20% 80%, rgba(10, 60, 40, 0.25), transparent 65%),
+    --aurora-gradient: radial-gradient(
+        ellipse 80% 60% at 60% 20%,
+        rgba(20, 80, 40, 0.25),
+        transparent 65%
+      ),
+      radial-gradient(
+        ellipse 70% 60% at 20% 80%,
+        rgba(10, 60, 40, 0.25),
+        transparent 65%
+      ),
       linear-gradient(180deg, #051a05 0%, #0a250a 100%);
   }
 
   /* Ocean Theme */
-  [data-theme-color='ocean'] {
+  [data-theme-color="ocean"] {
     --primary: 199 89% 48%; /* Blue */
     --primary-foreground: 0 0% 100%;
     --ring: 199 89% 48%;
 
     /* Aurora Gradient - Ocean Light */
-    --aurora-gradient: 
-      radial-gradient(ellipse 80% 60% at 60% 20%, rgba(109, 200, 255, 0.40), transparent 65%),
-      radial-gradient(ellipse 70% 60% at 20% 80%, rgba(100, 150, 255, 0.35), transparent 65%),
-      radial-gradient(ellipse 60% 50% at 60% 65%, rgba(170, 220, 255, 0.43), transparent 62%),
-      radial-gradient(ellipse 65% 40% at 50% 60%, rgba(120, 180, 255, 0.38), transparent 68%),
+    --aurora-gradient: radial-gradient(
+        ellipse 80% 60% at 60% 20%,
+        rgba(109, 200, 255, 0.4),
+        transparent 65%
+      ),
+      radial-gradient(
+        ellipse 70% 60% at 20% 80%,
+        rgba(100, 150, 255, 0.35),
+        transparent 65%
+      ),
+      radial-gradient(
+        ellipse 60% 50% at 60% 65%,
+        rgba(170, 220, 255, 0.43),
+        transparent 62%
+      ),
+      radial-gradient(
+        ellipse 65% 40% at 50% 60%,
+        rgba(120, 180, 255, 0.38),
+        transparent 68%
+      ),
       linear-gradient(180deg, #eff7ff 0%, #e2ebfd 100%);
   }
 
-  [data-theme-color='ocean'] .dark {
+  [data-theme-color="ocean"] .dark {
     --primary: 199 80% 60%;
     --primary-foreground: 210 40% 98%;
     --ring: 199 80% 60%;
 
     /* Aurora Gradient - Ocean Dark */
-    --aurora-gradient: 
-      radial-gradient(ellipse 80% 60% at 60% 20%, rgba(10, 40, 80, 0.30), transparent 65%),
-      radial-gradient(ellipse 70% 60% at 20% 80%, rgba(5, 20, 60, 0.30), transparent 65%),
+    --aurora-gradient: radial-gradient(
+        ellipse 80% 60% at 60% 20%,
+        rgba(10, 40, 80, 0.3),
+        transparent 65%
+      ),
+      radial-gradient(
+        ellipse 70% 60% at 20% 80%,
+        rgba(5, 20, 60, 0.3),
+        transparent 65%
+      ),
       linear-gradient(180deg, #050a1a 0%, #0a1025 100%);
   }
 
@@ -152,10 +228,21 @@ li, td, th, label {
     --chart-5: 340 75% 55%;
 
     /* Aurora Gradient - Default Dark */
-    --aurora-gradient: 
-      radial-gradient(ellipse 80% 60% at 60% 20%, rgba(60, 20, 80, 0.25), transparent 65%),
-      radial-gradient(ellipse 70% 60% at 20% 80%, rgba(40, 10, 60, 0.25), transparent 65%),
-      radial-gradient(ellipse 60% 50% at 60% 65%, rgba(30, 30, 60, 0.20), transparent 62%),
+    --aurora-gradient: radial-gradient(
+        ellipse 80% 60% at 60% 20%,
+        rgba(60, 20, 80, 0.25),
+        transparent 65%
+      ),
+      radial-gradient(
+        ellipse 70% 60% at 20% 80%,
+        rgba(40, 10, 60, 0.25),
+        transparent 65%
+      ),
+      radial-gradient(
+        ellipse 60% 50% at 60% 65%,
+        rgba(30, 30, 60, 0.2),
+        transparent 62%
+      ),
       linear-gradient(180deg, #0f0514 0%, #1a0a20 100%);
   }
 }
@@ -193,7 +280,8 @@ li, td, th, label {
 
 /* Smooth Animations */
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
   }
   50% {
@@ -202,7 +290,8 @@ li, td, th, label {
 }
 
 @keyframes float-delayed {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
   }
   50% {
@@ -211,7 +300,8 @@ li, td, th, label {
 }
 
 @keyframes gradient {
-  0%, 100% {
+  0%,
+  100% {
     background-position: 0% 50%;
   }
   50% {

@@ -20,18 +20,16 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav 
+    <nav
       className={`fixed w-full z-50 transition-all duration-300 ease-in-out ${
-        scrolled 
-          ? "top-4 left-0 right-0 px-4" 
-          : "top-0 px-0"
+        scrolled ? "top-4 left-0 right-0 px-4" : "top-0 px-0"
       }`}
     >
-      <div 
+      <div
         className={`w-full flex justify-between items-center h-16 px-4 md:px-6 transition-all duration-300 ${
           scrolled
             ? "bg-background/70 backdrop-blur-md shadow-lg rounded-full border border-white/20 text-foreground"
-            : "bg-transparent text-white"
+            : "bg-transparent *:text-primary"
         }`}
       >
         {/* Profile */}
@@ -45,11 +43,17 @@ const Navbar = () => {
             alt="KendroBangla Logo"
             width={100}
             height={50}
-            className={`object-cover transition-opacity duration-300 ${scrolled ? 'opacity-100' : 'opacity-90 hover:opacity-100'}`}
+            className={`object-cover transition-opacity duration-300 ${
+              scrolled ? "opacity-100" : "opacity-90 hover:opacity-100"
+            }`}
           />
         </Link>
         {/* Large Display */}
-        <div className={`hidden lg:flex items-center text-sm gap-2 ${scrolled ? 'text-foreground' : 'text-white'}`}>
+        <div
+          className={`hidden lg:flex items-center text-sm gap-2 ${
+            scrolled ? "text-foreground" : "text-white"
+          }`}
+        >
           <Link
             className={`hover:text-primary transition-colors px-3 py-1 font-medium`}
             href="/"
@@ -62,35 +66,35 @@ const Navbar = () => {
           >
             Dashboard
           </Link>
-          
-          <SettingsSheet 
+
+          <SettingsSheet
             trigger={
               <button
                 className={`flex items-center gap-1 p-2 rounded-full transition-colors ${
-                  scrolled 
-                    ? "hover:bg-primary/10 text-foreground" 
+                  scrolled
+                    ? "hover:bg-primary/10 text-foreground"
                     : "hover:bg-white/20 text-white"
                 }`}
                 title="সেটিংস"
               >
-                <Settings className="size-5" />
+                <Settings className="size-5 text-primary" />
               </button>
             }
           />
         </div>
         {/* Sidebar */}
         <div className="lg:hidden flex items-center gap-2">
-          <SettingsSheet 
+          <SettingsSheet
             trigger={
               <button
                 className={`flex items-center p-2 rounded-full transition-colors ${
-                  scrolled 
-                    ? "hover:bg-primary/10 text-foreground" 
-                    : "hover:bg-white/20 text-white"
+                  scrolled
+                    ? "hover:bg-primary/10 text-foreground"
+                    : "hover:bg-white/20 text-primary"
                 }`}
                 title="সেটিংস"
               >
-                <Settings className="size-5" />
+                <Settings className="size-5 text-primary" />
               </button>
             }
           />
